@@ -28,8 +28,9 @@ sudo vim /etc/hosts
 - docker run
 
 ```
-cd dev_laravel/docker/dev
+cd dev_laravel
 cp .env.example .env
+cd docker/dev
 docker-compose up -d
 ```
 
