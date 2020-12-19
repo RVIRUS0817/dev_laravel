@@ -1,0 +1,27 @@
+version: '2'
+services:
+  app:
+    container_name: app-laravel
+    build: ./app/
+    ports:
+      - '80:80'
+    volumes:
+      - ~/git/github/dev_laravel:/var/www/app/
+    tty: true
+    depends_on:
+      - db
+  db:
+    container_name: mysql-57
+    build: ./mysql/
+    ports:
+      - '3308:3306'
+    environment:
+      MYSQL_DATABASE: app
+      MYSQL_ROOT_PASSWORD: password
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./mysql/db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+  sockets:
