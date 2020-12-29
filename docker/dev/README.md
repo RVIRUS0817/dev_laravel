@@ -60,3 +60,13 @@ http://dev.adachin.com/
 docker exec -it app-laravel bash
 mysql -u root -h db -p
 ```
+
+## How to download Laravel app
+
+```
+composer global require laravel/installer
+
+laravel new app
+or
+composer create-project --prefer-dist laravel/laravel app
+```
