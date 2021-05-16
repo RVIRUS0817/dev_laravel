@@ -1,8 +1,9 @@
 version: '2'
 services:
   app:
-    container_name: app-laravel
+    container_name: laravel-app
     build: ./app/
+    image: laravel-app
     ports:
       - '80:80'
     volumes:
@@ -11,8 +12,9 @@ services:
     depends_on:
       - db
   db:
-    container_name: mysql-57
+    container_name: laravel-db
     build: ./mysql/
+    image: laravel-db
     ports:
       - '3309:3306'
     environment:
