@@ -37,7 +37,7 @@ docker-compose up -d
 - app deploy
 
 ```
-docker exec -it app-laravel bash
+docker exec -it laravel-app bash
 
 composer install
 php artisan key:generate
