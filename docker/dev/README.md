@@ -59,13 +59,14 @@ http://dev.adachin.com/
 - DB login
 
 ```
-docker exec -it app-laravel bash
+docker exec -it laravel-app bash
 mysql -u root -h db -p
 ```
 
 - redis login
 
 ```
+docker exec -it laravel-app bash
 redis-cli -h redis
 ```
 
