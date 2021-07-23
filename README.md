@@ -6,8 +6,10 @@
 - docker images
   - app-laravel
     - php:7.4-fpm-alpine (nginx,php-fpm,supervisor)
+    - Laravel 8.19.0 
   - mysql-57
     - mysql:5.7
+  - redis
 
 
 - git clone or fork
@@ -59,6 +61,13 @@ http://dev.adachin.com/
 ```
 docker exec -it app-laravel bash
 mysql -u root -h db -p
+```
+
+- redis login
+```
+docker exec -it app-laravel bash
+redis-cli -h redis
+
 ```
 
 ## How to download Laravel app

@@ -35,6 +35,7 @@ RUN apk update && \
     supervisor \
     tzdata \
     vim \
+	redis \
     yaml-dev \
     zlib-dev
 
@@ -57,7 +58,7 @@ COPY php/php.ini /usr/local/etc/php/php.ini
 COPY php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 # Install xdebug
-RUN pecl install xdebug
+RUN pecl install xdebug redis
 RUN docker-php-ext-enable xdebug
 
 # composer install
