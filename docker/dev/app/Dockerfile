@@ -26,7 +26,7 @@ RUN apk update && \
     libxslt-dev \
     make \
     mysql-dev \
-	mysql-client \
+    mysql-client \
     nginx \
     openssh \
     openssl \
@@ -35,7 +35,7 @@ RUN apk update && \
     supervisor \
     tzdata \
     vim \
-	redis \
+    redis \
     yaml-dev \
     zlib-dev
 
