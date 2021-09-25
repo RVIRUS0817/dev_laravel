@@ -4,12 +4,12 @@
 
 
 - docker images
-  - app-laravel
+  - laravel-app
     - php:7.4-fpm-alpine (nginx,php-fpm,supervisor)
     - Laravel 8.19.0
-  - mysql-57
+  - laravel-db
     - mysql:5.7
-  - redis
+  - laravel-redis
 
 
 - git clone or fork
