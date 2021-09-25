@@ -7,7 +7,7 @@ services:
     ports:
       - '80:80'
     volumes:
-      - ~/git/github/dev_laravel:/var/www/app/
+      - ~/git/github/dev_laravel:/var/www/app:delegated
     tty: true
     depends_on:
       - db
