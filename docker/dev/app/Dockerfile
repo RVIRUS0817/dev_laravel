@@ -62,7 +62,7 @@ RUN pecl install xdebug redis
 RUN docker-php-ext-enable xdebug
 
 # composer install
-RUN curl -sS https://getcomposer.org/installer | php -- --version=1.9.1 --install-dir=/usr/bin
+RUN curl -sS https://getcomposer.org/installer | php -- --version=2.2.6 --install-dir=/usr/bin
 RUN mv /usr/bin/composer.phar /usr/bin/composer
 
 ## nginx
