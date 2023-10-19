@@ -1,0 +1,44 @@
+version: '2'
+
+volumes:
+  php-fpm-sock:
+
+services:
+  app:
+    container_name: laravel-app
+    build: ./app/
+    image: laravel-app
+    volumes:
+      - ~/git/github/dev_laravel:/var/www/app:delegated
+      - php-fpm-sock:/var/run/php-fpm
+    tty: true
+    depends_on:
+      - db
+      - redis
+  nginx:
+    container_name: laravel-nginx
+    build: ./nginx/
+    image: laravel-nginx
+    ports:
+      - '80:80'
+    volumes:
+      - php-fpm-sock:/var/run/php-fpm
+    tty: true
+  db:
+    container_name: laravel-db
+    build: ./mysql/
+    image: laravel-db
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: app
+    volumes:
+      - ./mysql/db_data:/var/lib/mysql
+  redis:
+    container_name: laravel-redis
+    image: "redis:latest"
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis/db_data:/data
