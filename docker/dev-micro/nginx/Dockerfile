@@ -13,7 +13,6 @@ RUN apk update && \
     bash \
     nginx \
     sudo \
-    supervisor \
     tzdata \
     vim
 
@@ -21,11 +20,5 @@ RUN apk update && \
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/dev.adachin.com.conf /etc/nginx/conf.d/dev.adachin.com.conf
 
-# setting superviser
-COPY supervisor/supervisord.conf /etc/supervisord.conf
-COPY supervisor/nginx.conf /etc/supervisor/conf.d/nginx.conf
-RUN echo files = /etc/supervisor/conf.d/*.conf >> /etc/supervisord.conf
-
 EXPOSE 80
-#CMD ["/usr/bin/supervisord"]
-CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

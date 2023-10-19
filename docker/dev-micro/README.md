@@ -8,7 +8,7 @@
     - php:7.4-fpm-alpine (nginx,php-fpm,supervisor)
     - Laravel 8.19.0
   - laravel-app
-    - nginx
+    - nginx 1.25.2
   - laravel-db
     - mysql:8.0.27
   - laravel-redis

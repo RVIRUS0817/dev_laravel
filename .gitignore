@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 /docker/dev/mysql/db_data
 /docker/dev/redis/db_data
+/docker/dev-micro/mysql/db_data
+/docker/dev-micro/redis/db_data

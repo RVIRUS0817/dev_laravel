@@ -4,6 +4,17 @@ volumes:
   php-fpm-sock:
 
 services:
+  nginx:
+    container_name: laravel-nginx
+    build: ./nginx/
+    image: laravel-nginx
+    ports:
+      - '80:80'
+    volumes:
+      - php-fpm-sock:/var/run/php-fpm
+    tty: true
+    depends_on:
+      - app
   app:
     container_name: laravel-app
     build: ./app/
@@ -15,15 +26,6 @@ services:
     depends_on:
       - db
       - redis
-  nginx:
-    container_name: laravel-nginx
-    build: ./nginx/
-    image: laravel-nginx
-    ports:
-      - '80:80'
-    volumes:
-      - php-fpm-sock:/var/run/php-fpm
-    tty: true
   db:
     container_name: laravel-db
     build: ./mysql/

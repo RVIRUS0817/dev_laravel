@@ -30,7 +30,6 @@ RUN apk update && \
     openssl \
     py3-pip \
     sudo \
-    supervisor \
     tzdata \
     vim \
     redis \
@@ -66,9 +65,4 @@ RUN pecl install xdebug redis
 RUN curl -sS https://getcomposer.org/installer | php -- --version=2.2.6 --install-dir=/usr/bin
 RUN mv /usr/bin/composer.phar /usr/bin/composer
 
-# setting superviser
-COPY supervisor/supervisord.conf /etc/supervisord.conf
-COPY supervisor/app.conf /etc/supervisor/conf.d/app.conf
-RUN echo files = /etc/supervisor/conf.d/*.conf >> /etc/supervisord.conf
-
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/local/sbin/php-fpm", "-F"]
