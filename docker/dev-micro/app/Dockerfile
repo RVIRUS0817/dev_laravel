@@ -58,8 +58,8 @@ COPY php/php.ini /usr/local/etc/php/php.ini
 COPY php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 # Install xdebug
-RUN pecl install xdebug redis
-#RUN docker-php-ext-enable xdebug
+RUN pecl install xdebug-3.1.5 redis
+RUN docker-php-ext-enable xdebug
 
 # composer install
 RUN curl -sS https://getcomposer.org/installer | php -- --version=2.2.6 --install-dir=/usr/bin
