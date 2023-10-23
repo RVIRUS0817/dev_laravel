@@ -11,6 +11,7 @@ services:
     ports:
       - '80:80'
     volumes:
+      - ~/git/github/dev_laravel:/var/www/app:delegated
       - php-fpm-sock:/var/run/php-fpm
     tty: true
     depends_on:
