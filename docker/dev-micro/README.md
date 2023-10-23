@@ -4,11 +4,11 @@
 
 
 - docker images
+  - laravel-nginx
+    - nginx 1.25.2
   - laravel-app
     - php:7.4-fpm-alpine (nginx,php-fpm,supervisor)
     - Laravel 8.19.0
-  - laravel-app
-    - nginx 1.25.2
   - laravel-db
     - mysql:8.0.27
   - laravel-redis
@@ -47,7 +47,6 @@ composer install
 php artisan key:generate
 php artisan config:cache
 php artisan migrate
-/usr/bin/supervisorctl restart app
 ``` 
 
 - Access
